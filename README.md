@@ -19,3 +19,20 @@ Try running the following commands:
 dbt init -> setup profile
 dbt compile -> checks if the files compile without errors
 dbt run -> runs the sql inside the data platfotrm
+
+dbt source freshness -> check freshness
+dbt deps -> install packages
+
+
+leverage codegen package from dbtlabs - command below generates the source yaml for the tables inside the database and schema
+dbt run-operation generate_source --args '{"schema_name": "jaffle_shop", "database_name": "raw"}'
+
+This one below leverages the codegen package as the one before, to generate the source model based on the parameters
+dbt run-operation generate_base_model --args '{"source_name": "jaffle_shop", "table_name": "customers"}'
+
+dbt test -> runs all the tests
+dbt test --select stg_stripe___payments -> testing specific model
+dbt test -s source:jaffle_shop -> testing specific source
+
+Rule for tets:
+test sources for data integrity and test models for transformation integrity
