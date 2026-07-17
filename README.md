@@ -36,3 +36,7 @@ dbt test -s source:jaffle_shop -> testing specific source
 
 Rule for tets:
 test sources for data integrity and test models for transformation integrity
+
+
+dbt build -> almost a security layer to avoid issues in production
+run models and tests, and move one by one. if one fails, it stops there. It is the run + tests + seed + snapshots command.
